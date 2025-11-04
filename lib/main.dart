@@ -1,7 +1,4 @@
-import 'package:digital_twins/features/automation/view/automation_screen.dart';
-import 'package:digital_twins/features/dashboard/view/dashboard_screen.dart';
-import 'package:digital_twins/features/insights/view/productivity_insights_screen.dart';
-import 'package:digital_twins/features/profile/view/profile_screen.dart';
+import 'package:digital_twins/features/sign_in/view/sign_in_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -30,7 +27,7 @@ class MyApp extends StatelessWidget {
         ),
         fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
       ),
-      home: const DigitalTwinsDashboard(),
+      home: const SignInScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
