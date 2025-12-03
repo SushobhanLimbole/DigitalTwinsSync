@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         ),
         fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
       ),
-      home: const SignInScreen(),
+      home: SignInScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

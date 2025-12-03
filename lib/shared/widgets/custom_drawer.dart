@@ -1,5 +1,6 @@
 import 'package:digital_twins/features/ai_personalization/view/ai_personalization_screen.dart';
 import 'package:digital_twins/features/automation/view/automation_screen.dart';
+import 'package:digital_twins/features/chatbot/view/chatbot_screen.dart';
 import 'package:digital_twins/features/dashboard/view/dashboard_screen.dart';
 import 'package:digital_twins/features/insights/view/productivity_insights_screen.dart';
 import 'package:digital_twins/features/profile/view/profile_screen.dart';
@@ -97,6 +98,17 @@ class CustomDrawer extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => ProductivityInsightsScreen(),
                 ),
+              );
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.email),
+            title: const Text('Chatbot and emails'),
+            onTap: () {
+              // Navigate to home or close drawer
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => ChatbotScreen()),
               );
             },
           ),
