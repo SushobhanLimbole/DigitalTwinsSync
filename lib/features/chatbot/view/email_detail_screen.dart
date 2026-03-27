@@ -9,21 +9,27 @@ class EmailDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF101022),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(title: Text(email.subject)),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("From: ${email.from}",
-                style: const TextStyle(color: Colors.white70)),
-            const SizedBox(height: 12),
+            Text(
+              "From: ${email.from}",
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+              ),
+            ),
+            SizedBox(height: 12),
             Expanded(
               child: SingleChildScrollView(
                 child: Text(
                   email.snippet,
-                  style: const TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
               ),
             ),

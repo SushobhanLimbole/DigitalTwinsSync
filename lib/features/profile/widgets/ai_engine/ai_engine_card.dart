@@ -24,7 +24,7 @@ class AiEngineCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SectionHeader(title: 'AI Engine'),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           ToggleItem(
             title: 'Enable AI Personalization',
             subtitle:
@@ -32,7 +32,7 @@ class AiEngineCard extends StatelessWidget {
             value: enablePersonalization,
             onChanged: onPersonalizationChanged,
           ),
-          const Divider(color: Colors.white10),
+          Divider(color: Theme.of(context).colorScheme.onSurface.withOpacity(0.1)),
           ToggleItem(
             title: 'Enable AI Automations',
             subtitle:
@@ -47,7 +47,7 @@ class AiEngineCard extends StatelessWidget {
 
   Widget _card({required Widget child}) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: const Color(0x991C1C27),
         borderRadius: BorderRadius.circular(12),

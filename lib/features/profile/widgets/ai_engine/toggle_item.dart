@@ -25,16 +25,20 @@ class ToggleItem extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  color: Colors.white.withOpacity(0.7),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.7),
                   fontSize: 14,
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              const SizedBox(height: 4),
+              SizedBox(height: 4),
               Text(
                 subtitle,
                 style: TextStyle(
-                  color: Colors.white.withOpacity(0.5),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.5),
                   fontSize: 12,
                 ),
                 maxLines: 2,
@@ -46,7 +50,7 @@ class ToggleItem extends StatelessWidget {
         Switch(
           value: value,
           onChanged: onChanged,
-          activeColor: const Color(0xFF4D9FFF),
+          activeThumbColor: const Color(0xFF4D9FFF),
           activeTrackColor: const Color(0x1A4D9FFF),
         ),
       ],

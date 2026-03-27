@@ -17,10 +17,7 @@ class SignInButton extends StatelessWidget {
           backgroundColor: Colors.cyan,
           foregroundColor: Colors.white,
         ),
-        child: const Text(
-          "Sign In",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
+        child: Text("Sign In", style: TextStyle(fontWeight: FontWeight.bold)),
       ),
     );
   }

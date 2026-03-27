@@ -20,13 +20,13 @@ class TaskItem extends StatelessWidget {
     final decoration = checked ? TextDecoration.lineThrough : null;
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
+      padding: EdgeInsets.only(bottom: 12),
       child: Row(
         children: [
           Checkbox(
             value: checked,
             onChanged: onChanged,
-            activeColor: const Color(0xFF1313EC),
+            activeColor: Theme.of(context).colorScheme.primary,
             checkColor: Colors.white,
             side: const BorderSide(color: Color(0xFF475569)),
             shape: const CircleBorder(),

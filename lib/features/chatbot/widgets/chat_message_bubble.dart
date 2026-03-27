@@ -13,15 +13,15 @@ class ChatMessageBubble extends StatelessWidget {
     return Align(
       alignment: isUser ? Alignment.centerRight : Alignment.centerLeft,
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 6),
-        padding: const EdgeInsets.all(12),
+        margin: EdgeInsets.symmetric(vertical: 6),
+        padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: isUser ? Colors.blue : Colors.grey[800],
           borderRadius: BorderRadius.circular(12),
         ),
         child: Text(
           message.text,
-          style: const TextStyle(color: Colors.white),
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
         ),
       ),
     );

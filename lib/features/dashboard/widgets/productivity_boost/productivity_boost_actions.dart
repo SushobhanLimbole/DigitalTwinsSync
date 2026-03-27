@@ -17,22 +17,17 @@ class ProductivityBoostActions extends StatelessWidget {
       children: [
         TextButton(
           onPressed: onDismiss,
-          style: TextButton.styleFrom(
-            foregroundColor: Colors.grey[300],
-          ),
-          child: const Text(
+          style: TextButton.styleFrom(foregroundColor: Colors.grey[300]),
+          child: Text(
             'Dismiss',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
           ),
         ),
-        const SizedBox(width: 12),
+        SizedBox(width: 12),
         ElevatedButton(
           onPressed: onMerge,
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF1313EC),
+            backgroundColor: Theme.of(context).colorScheme.primary,
             foregroundColor: Colors.white,
             minimumSize: const Size(84, 40),
             shape: RoundedRectangleBorder(
@@ -41,12 +36,9 @@ class ProductivityBoostActions extends StatelessWidget {
             elevation: 0,
             shadowColor: const Color(0x801313EC),
           ),
-          child: const Text(
+          child: Text(
             'Merge Now',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
+            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
           ),
         ),
       ],

@@ -21,8 +21,8 @@ class SuggestionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 5),
-      padding: const EdgeInsets.all(16),
+      margin: EdgeInsets.symmetric(vertical: 5),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: const Color(0x991C1C27),
         borderRadius: BorderRadius.circular(12),
@@ -32,22 +32,19 @@ class SuggestionCard extends StatelessWidget {
         children: [
           Text(
             subtitle,
-            style: TextStyle(
-              color: Colors.grey[500],
-              fontSize: 12,
-            ),
+            style: TextStyle(color: Colors.grey[500], fontSize: 12),
           ),
-          const SizedBox(height: 4),
+          SizedBox(height: 4),
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
               letterSpacing: -0.015 * 18 / 1000,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
-          const SizedBox(height: 8),
+          SizedBox(height: 8),
           Text(
             description,
             style: TextStyle(
@@ -56,7 +53,7 @@ class SuggestionCard extends StatelessWidget {
               height: 1.4,
             ),
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           _buildButtons(context),
         ],
       ),
@@ -69,22 +66,22 @@ class SuggestionCard extends StatelessWidget {
       children: [
         TextButton(
           onPressed: () {},
-          child: const Text(
+          child: Text(
             'Dismiss',
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500,
-              color: Colors.white70,
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
             ),
           ),
         ),
-        const SizedBox(width: 12),
+        SizedBox(width: 12),
         ElevatedButton.icon(
           onPressed: onPrimaryPressed,
           icon: primaryIcon != null ? Icon(primaryIcon, size: 16) : null,
           label: Text(primaryAction),
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFF1313EC),
+            backgroundColor: Theme.of(context).colorScheme.primary,
             foregroundColor: Colors.white,
             minimumSize: const Size(84, 40),
             shape: RoundedRectangleBorder(

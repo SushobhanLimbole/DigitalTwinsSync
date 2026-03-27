@@ -10,15 +10,15 @@ class EmailField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Email", style: TextStyle(color: Colors.grey)),
-        const SizedBox(height: 8),
+        Text("Email", style: TextStyle(color: Colors.grey)),
+        SizedBox(height: 8),
         TextFormField(
           controller: controller,
           keyboardType: TextInputType.emailAddress,
-          style: const TextStyle(color: Colors.white),
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
           decoration: InputDecoration(
             hintText: "john.doe@example.com",
-            hintStyle: const TextStyle(color: Colors.grey),
+            hintStyle: TextStyle(color: Colors.grey),
             filled: true,
             fillColor: Colors.white10,
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),

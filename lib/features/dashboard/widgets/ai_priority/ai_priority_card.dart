@@ -22,28 +22,22 @@ class AiPriorityCard extends StatelessWidget {
         border: Border.all(color: const Color(0xFF334155)),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               message,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
                 letterSpacing: -0.015 * 18 / 1000,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
-            const SizedBox(height: 8),
-            Text(
-              subtitle,
-              style: const TextStyle(
-                color: Colors.grey,
-                fontSize: 16,
-              ),
-            ),
-            const SizedBox(height: 16),
+            SizedBox(height: 8),
+            Text(subtitle, style: TextStyle(color: Colors.grey, fontSize: 16)),
+            SizedBox(height: 16),
             Align(
               alignment: Alignment.centerRight,
               child: AiPriorityButton(

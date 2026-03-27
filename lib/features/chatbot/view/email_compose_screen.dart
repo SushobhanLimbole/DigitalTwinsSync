@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../controller/chatbot_controller.dart';
 
 class EmailComposeScreen extends StatefulWidget {
+  const EmailComposeScreen({super.key});
+
   @override
   State<EmailComposeScreen> createState() => _EmailComposeScreenState();
 }
@@ -19,81 +21,79 @@ class _EmailComposeScreenState extends State<EmailComposeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF101022),
-      appBar: AppBar(title: const Text("Write Email")),
+      backgroundColor: Theme.of(context).colorScheme.surface,
+      appBar: AppBar(title: Text("Write Email")),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Column(
           children: [
             TextField(
               controller: toCtrl,
               decoration: _input("Recipient Email"),
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
 
             TextField(
               controller: subjectCtrl,
               decoration: _input("Subject"),
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
 
             TextField(
               controller: bodyCtrl,
               maxLines: 3,
               decoration: _input("Body"),
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
 
             TextField(
               controller: promptCtrl,
               maxLines: 3,
               decoration: _input("Describe the email you want Gemini to write"),
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
             ),
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
 
             ElevatedButton(
               onPressed: _generateEmail,
-              child: const Text("Generate Email with Gemini"),
-              
+              child: Text("Generate Email with Gemini"),
             ),
 
             if (generatedEmail.isNotEmpty)
               Container(
-                padding: const EdgeInsets.all(16),
-                margin: const EdgeInsets.only(top: 16),
+                padding: EdgeInsets.all(16),
+                margin: EdgeInsets.only(top: 16),
                 decoration: BoxDecoration(
                   color: const Color(0xFF1E1E2E),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Text(
                   generatedEmail,
-                  style: const TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                 ),
               ),
 
-            const SizedBox(height: 12),
+            SizedBox(height: 12),
 
-            ElevatedButton(
-              onPressed: _sendEmail,
-              child: const Text("Send Email"),
-            ),
+            ElevatedButton(onPressed: _sendEmail, child: Text("Send Email")),
           ],
         ),
       ),
     );
   }
 
-  InputDecoration _input(String hint) => InputDecoration( 
-        hintText: hint,
-        hintStyle: const TextStyle(color: Colors.grey),
-        filled: true,
-        fillColor: const Color(0xFF1E1E2E),
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
-      );
+  InputDecoration _input(String hint) => InputDecoration(
+    hintText: hint,
+    hintStyle: TextStyle(color: Colors.grey),
+    filled: true,
+    fillColor: const Color(0xFF1E1E2E),
+    border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+  );
 
   Future<void> _generateEmail() async {
     setState(() => loading = true);
@@ -114,8 +114,8 @@ class _EmailComposeScreenState extends State<EmailComposeScreen> {
       // generatedEmail,
     );
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Email Sent Successfully!")),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text("Email Sent Successfully!")));
   }
 }

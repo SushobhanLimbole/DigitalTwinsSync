@@ -23,7 +23,7 @@ class PreferencesCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SectionHeader(title: 'Preferences'),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           DropdownField(
             label: 'Notification Level',
             value: notificationLevel,
@@ -43,7 +43,7 @@ class PreferencesCard extends StatelessWidget {
 
   Widget _card({required Widget child}) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: const Color(0x991C1C27),
         borderRadius: BorderRadius.circular(12),

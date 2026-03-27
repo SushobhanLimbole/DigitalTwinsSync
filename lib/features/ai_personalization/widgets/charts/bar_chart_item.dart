@@ -20,24 +20,22 @@ class BarChartItem extends StatelessWidget {
             child: Container(
               width: 20,
               decoration: BoxDecoration(
-                color: const Color(0xFF1313EC).withOpacity(0.2),
+                color: Theme.of(context).colorScheme.primary.withOpacity(0.2),
                 borderRadius: const BorderRadius.vertical(
                   top: Radius.circular(10),
                 ),
               ),
               child: Container(
                 height: heightFraction * 140,
-                decoration: const BoxDecoration(
-                  color: Color(0xFF1313EC),
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(10),
-                  ),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
                 ),
               ),
             ),
           ),
         ),
-        const SizedBox(height: 4),
+        SizedBox(height: 4),
         Text(
           label,
           style: TextStyle(

@@ -6,19 +6,21 @@ class EmptyStateCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(32),
-      margin: const EdgeInsets.symmetric(vertical: 5),
+      padding: EdgeInsets.all(32),
+      margin: EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
         color: const Color(0x991C1C27),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.1),
+        ),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(Icons.rocket_launch, size: 64, color: const Color(0xFF8A8D98)),
-          const SizedBox(height: 16),
-          const Text(
+          SizedBox(height: 16),
+          Text(
             'Automate Your Workflow',
             style: TextStyle(
               color: Color(0xFFEAEAEA),
@@ -26,28 +28,27 @@ class EmptyStateCard extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          const SizedBox(height: 8),
-          const Text(
+          SizedBox(height: 8),
+          Text(
             "You don't have any other automations. Create your first one to boost your productivity.",
-            style: TextStyle(
-              color: Color(0xFF8A8D98),
-              fontSize: 14,
-            ),
+            style: TextStyle(color: Color(0xFF8A8D98), fontSize: 14),
             textAlign: TextAlign.center,
             maxLines: 2,
           ),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           ElevatedButton.icon(
             onPressed: () {
               // Navigate to automation creation screen or open modal
             },
-            icon: const Icon(Icons.add, size: 20),
-            label: const Text('Create Automation'),
+            icon: Icon(Icons.add, size: 20),
+            label: Text('Create Automation'),
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFF00FFFF),
               foregroundColor: Colors.black,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
             ),
           ),
         ],

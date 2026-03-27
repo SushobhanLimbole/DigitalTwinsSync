@@ -13,22 +13,29 @@ class AutomationsScreen extends StatelessWidget {
     return Scaffold(
       drawer: const CustomDrawer(),
       body: Container(
-        decoration: const BoxDecoration(color: Color(0xFF101022)),
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.surface,
+        ),
         child: CustomScrollView(
           slivers: [
             SliverAppBar(
               pinned: true,
-              backgroundColor: const Color(0xFF101022),
+              backgroundColor: Theme.of(context).colorScheme.surface,
               surfaceTintColor: Colors.transparent,
               foregroundColor: const Color(0xFFEAEAEA),
               leading: Builder(
                 builder: (context) => IconButton(
-                  icon: const Icon(Icons.menu, color: Colors.white),
+                  icon: Icon(
+                    Icons.menu,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                   onPressed: () => Scaffold.of(context).openDrawer(),
-                  tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+                  tooltip: MaterialLocalizations.of(
+                    context,
+                  ).openAppDrawerTooltip,
                 ),
               ),
-              title: const Text(
+              title: Text(
                 'Automations',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -39,11 +46,13 @@ class AutomationsScreen extends StatelessWidget {
               centerTitle: true,
               actions: [
                 Padding(
-                  padding: const EdgeInsets.all(12.0),
+                  padding: EdgeInsets.all(12.0),
                   child: IconButton(
                     onPressed: () {},
-                    icon: const Icon(Icons.add, size: 32),
-                    style: IconButton.styleFrom(backgroundColor: Colors.transparent),
+                    icon: Icon(Icons.add, size: 32),
+                    style: IconButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                    ),
                   ),
                 ),
               ],
@@ -59,7 +68,7 @@ class AutomationsScreen extends StatelessWidget {
 
             // Automation list
             SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
+              padding: EdgeInsets.symmetric(horizontal: 16),
               sliver: SliverList(
                 delegate: SliverChildListDelegate([
                   AutomationCard(
@@ -81,7 +90,8 @@ class AutomationsScreen extends StatelessWidget {
                   AutomationCard(
                     icon: Icons.summarize,
                     title: 'Weekly Productivity Report',
-                    subtitle: 'Summarizes completed tasks and sends to my inbox.',
+                    subtitle:
+                        'Summarizes completed tasks and sends to my inbox.',
                     isEnabled: false,
                     showProgress: true,
                     progressValue: 0.45,
@@ -89,7 +99,7 @@ class AutomationsScreen extends StatelessWidget {
                   ),
 
                   // Empty / CTA card
-                  const SizedBox(height: 8),
+                  SizedBox(height: 8),
                   const EmptyStateCard(),
                 ]),
               ),

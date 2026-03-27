@@ -49,15 +49,17 @@ class BarChart extends StatelessWidget {
                 }),
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: List.generate(
                 7,
                 (index) => Text(
                   days[index],
-                  style: const TextStyle(
-                    color: Colors.white70,
+                  style: TextStyle(
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.onSurface.withOpacity(0.7),
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
                   ),

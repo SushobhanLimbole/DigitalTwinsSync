@@ -8,7 +8,7 @@ class BackgroundBlur extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(color: const Color(0xFF101022)),
+        Container(color: Theme.of(context).colorScheme.surface),
         _blurCircle(
           context,
           top: -0.25,
@@ -35,7 +35,9 @@ class BackgroundBlur extends StatelessWidget {
   }) {
     return Positioned(
       top: top != null ? MediaQuery.of(context).size.height * top : null,
-      bottom: bottom != null ? MediaQuery.of(context).size.height * bottom : null,
+      bottom: bottom != null
+          ? MediaQuery.of(context).size.height * bottom
+          : null,
       left: left != null ? MediaQuery.of(context).size.width * left : null,
       right: right != null ? MediaQuery.of(context).size.width * right : null,
       child: Container(
@@ -44,7 +46,7 @@ class BackgroundBlur extends StatelessWidget {
         decoration: BoxDecoration(shape: BoxShape.circle, color: color),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 30, sigmaY: 30),
-          child: const SizedBox(),
+          child: SizedBox(),
         ),
       ),
     );

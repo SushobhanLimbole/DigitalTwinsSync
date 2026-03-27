@@ -35,9 +35,6 @@ class DashboardRoutes {
   }
 
   static void goToChatbot(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => ChatbotScreen()),
-    );
+    Navigator.push(context, MaterialPageRoute(builder: (_) => ChatbotScreen()));
   }
 }

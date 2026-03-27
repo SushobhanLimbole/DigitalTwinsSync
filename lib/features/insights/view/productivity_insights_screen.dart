@@ -31,7 +31,7 @@ class _ProductivityInsightsScreenState
       drawer: const CustomDrawer(),
       appBar: _buildAppBar(),
       body: _buildBody(),
-      backgroundColor: const Color(0xFF101022),
+      backgroundColor: Theme.of(context).colorScheme.surface,
     );
   }
 
@@ -41,16 +41,16 @@ class _ProductivityInsightsScreenState
       elevation: 0,
       leading: Builder(
         builder: (context) => IconButton(
-          icon: const Icon(Icons.menu, color: Colors.white),
+          icon: Icon(
+            Icons.menu,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
           onPressed: () => Scaffold.of(context).openDrawer(),
         ),
       ),
-      title: const Text(
+      title: Text(
         'Productivity Insights',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 18,
-        ),
+        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
       ),
       centerTitle: true,
     );
@@ -63,7 +63,7 @@ class _ProductivityInsightsScreenState
         children: [
           // Time filter
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             child: TimeFilterSegment(
               selected: _selectedSegment,
               onChanged: (value) => setState(() => _selectedSegment = value),
@@ -71,14 +71,14 @@ class _ProductivityInsightsScreenState
           ),
 
           // This Week Snapshot
-          const Padding(
+          Padding(
             padding: EdgeInsets.fromLTRB(16, 0, 16, 16),
             child: Text(
               "This Week's Snapshot",
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ),
@@ -86,14 +86,14 @@ class _ProductivityInsightsScreenState
           _buildSnapshotSection(),
 
           // AI Summary
-          const Padding(
+          Padding(
             padding: EdgeInsets.fromLTRB(16, 16, 16, 8),
             child: Text(
               'AI Summary',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ),
@@ -101,10 +101,7 @@ class _ProductivityInsightsScreenState
           _buildSummarySection(),
 
           // Charts
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: _buildChartsSection(),
-          ),
+          Padding(padding: EdgeInsets.all(16), child: _buildChartsSection()),
         ],
       ),
     );
@@ -113,7 +110,7 @@ class _ProductivityInsightsScreenState
   // SNAPSHOT SECTION
   Widget _buildSnapshotSection() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16),
       child: Wrap(
         spacing: 16,
         runSpacing: 16,
@@ -144,7 +141,7 @@ class _ProductivityInsightsScreenState
   // SUMMARY SECTION
   Widget _buildSummarySection() {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         children: const [
           SummaryCard(
@@ -184,12 +181,12 @@ class _ProductivityInsightsScreenState
           changeIcon: Icons.trending_up,
           child: Column(
             children: [
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               CustomPaint(
                 size: const Size(double.infinity, 148),
                 painter: ProductivityTrendPainter(),
               ),
-              const SizedBox(height: 16),
+              SizedBox(height: 16),
               _buildDaysRow(),
             ],
           ),
@@ -200,11 +197,11 @@ class _ProductivityInsightsScreenState
           title: 'Workload Distribution',
           subtitle: '',
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16),
+            padding: EdgeInsets.symmetric(vertical: 16),
             child: Row(
               children: [
                 const DonutChart(),
-                const SizedBox(width: 10),
+                SizedBox(width: 10),
                 Expanded(
                   child: Column(
                     children: const [
@@ -226,10 +223,7 @@ class _ProductivityInsightsScreenState
           subtitle: 'This Week',
           change: '+8.0%',
           changeIcon: Icons.trending_up,
-          child: const Padding(
-            padding: EdgeInsets.only(top: 16),
-            child: BarChart(),
-          ),
+          child: Padding(padding: EdgeInsets.only(top: 16), child: BarChart()),
         ),
       ],
     );
@@ -242,14 +236,16 @@ class _ProductivityInsightsScreenState
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: days
-          .map((d) => Text(
-                d,
-                style: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 13,
-                  fontWeight: FontWeight.bold,
-                ),
-              ))
+          .map(
+            (d) => Text(
+              d,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+                fontSize: 13,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          )
           .toList(),
     );
   }

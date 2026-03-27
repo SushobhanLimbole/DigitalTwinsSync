@@ -24,13 +24,13 @@ class SignUpScreen extends StatelessWidget {
           SafeArea(
             child: Center(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 400),
                   child: Column(
                     children: [
-                      _header(),
-                      const SizedBox(height: 24),
+                      _header(context),
+                      SizedBox(height: 24),
                       _formCard(context),
                     ],
                   ),
@@ -43,14 +43,22 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-  Widget _header() {
+  Widget _header(BuildContext context) {
     return Column(
-      children: const [
-        Icon(Icons.sync_alt, size: 64, color: Colors.white),
+      children: [
+        Icon(
+          Icons.sync_alt,
+          size: 64,
+          color: Theme.of(context).colorScheme.onSurface,
+        ),
         SizedBox(height: 12),
         Text(
           "Digital Twins Sync",
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
+          style: TextStyle(
+            fontSize: 28,
+            fontWeight: FontWeight.bold,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
         ),
         SizedBox(height: 8),
         Text(
@@ -64,24 +72,26 @@ class SignUpScreen extends StatelessWidget {
 
   Widget _formCard(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(24),
+      padding: EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: Colors.white10,
+        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.1),
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white24),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.24),
+        ),
       ),
       child: Column(
         children: [
           UsernameField(controller: controller.username),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           EmailField(controller: controller.email),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           PasswordField(controller: controller.password),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           ConfirmPasswordField(controller: controller.confirmPassword),
-          const SizedBox(height: 24),
+          SizedBox(height: 24),
           SignUpButton(controller: controller),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           _signInLink(context),
         ],
       ),
@@ -92,22 +102,22 @@ class SignUpScreen extends StatelessWidget {
     return RichText(
       text: TextSpan(
         children: [
-          const TextSpan(
+          TextSpan(
             text: "Already have an account? ",
             style: TextStyle(color: Colors.grey),
           ),
           TextSpan(
             text: "Sign In",
-            style: const TextStyle(
+            style: TextStyle(
               color: Color(0xFF7C3AED),
               fontWeight: FontWeight.bold,
               decoration: TextDecoration.underline,
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () => Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (_) => SignInScreen()),
-                  ),
+                context,
+                MaterialPageRoute(builder: (_) => SignInScreen()),
+              ),
           ),
         ],
       ),

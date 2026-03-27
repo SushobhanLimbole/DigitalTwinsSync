@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 class UserSyncIndicator extends StatelessWidget {
   final String syncText;
 
-  const UserSyncIndicator({
-    super.key,
-    required this.syncText,
-  });
+  const UserSyncIndicator({super.key, required this.syncText});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +17,8 @@ class UserSyncIndicator extends StatelessWidget {
             shape: BoxShape.circle,
           ),
         ),
-        const SizedBox(width: 8),
-        Text(
-          syncText,
-          style: const TextStyle(color: Colors.grey, fontSize: 12),
-        ),
+        SizedBox(width: 8),
+        Text(syncText, style: TextStyle(color: Colors.grey, fontSize: 12)),
       ],
     );
   }

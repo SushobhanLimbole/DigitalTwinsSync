@@ -19,11 +19,11 @@ class WeeklyFocusChart extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Column(
           children: [
             _buildHeader(context),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             _buildChart(),
           ],
         ),
@@ -38,25 +38,22 @@ class WeeklyFocusChart extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               '42 hours',
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             Row(
               children: [
                 Text(
                   'This Week',
-                  style: TextStyle(
-                    color: Colors.grey[400],
-                    fontSize: 16,
-                  ),
+                  style: TextStyle(color: Colors.grey[400], fontSize: 16),
                 ),
-                const SizedBox(width: 4),
-                const Text(
+                SizedBox(width: 4),
+                Text(
                   '+15%',
                   style: TextStyle(
                     color: Color(0xFF0BDA68),
@@ -66,7 +63,7 @@ class WeeklyFocusChart extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 8),
+            SizedBox(height: 8),
 
             /// Segmented Button
             SegmentedButton<int>(
@@ -76,8 +73,7 @@ class WeeklyFocusChart extends StatelessWidget {
                 ButtonSegment(value: 2, label: Text('Month')),
               ],
               selected: {selectedSegment},
-              onSelectionChanged: (set) =>
-                  onSegmentChanged(set.first),
+              onSelectionChanged: (set) => onSegmentChanged(set.first),
               style: SegmentedButton.styleFrom(
                 selectedBackgroundColor: Colors.transparent,
                 selectedForegroundColor: Colors.white,

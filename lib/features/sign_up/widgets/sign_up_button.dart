@@ -17,7 +17,7 @@ class SignUpButton extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
         onPressed: () => controller.register(context),
-        child: const Text(
+        child: Text(
           "Create Account",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),

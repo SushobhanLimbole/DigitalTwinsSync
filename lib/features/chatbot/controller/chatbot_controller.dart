@@ -19,8 +19,6 @@ class ChatbotController {
   Future<void> retrieveEmails() async {
     final emailList = await api.getLatestEmails();
 
-    
-
     latestEmails = emailList
         .map<EmailModel>((json) => EmailModel.fromJson(json))
         .toList();

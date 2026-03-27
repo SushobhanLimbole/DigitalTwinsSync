@@ -1,34 +1,30 @@
-import 'package:digital_twins/features/sign_in/view/sign_in_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
+import 'theme/app_theme.dart';
+import 'screens/main_screen.dart';
+import 'controllers/task_controller.dart';
+import 'controllers/digital_twin_controller.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // Registering GetX Controllers
+  Get.put(TaskController());
+  Get.put(DigitalTwinController());
+
+  runApp(const DigitalTwinsApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class DigitalTwinsApp extends StatelessWidget {
+  const DigitalTwinsApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Digital Twins Sync Dashboard',
-      theme: ThemeData(
-        useMaterial3: true,
-        colorScheme: const ColorScheme.dark(
-          primary: Color(0xFF1313EC),
-          surface: Color(0xFF101022),
-          background: Color(0xFF101022),
-          onSurface: Colors.white,
-        ),
-        scaffoldBackgroundColor: const Color(0xFF101022),
-        textTheme: GoogleFonts.spaceGroteskTextTheme(
-          Theme.of(context).textTheme,
-        ),
-        fontFamily: GoogleFonts.spaceGrotesk().fontFamily,
-      ),
-      home: SignInScreen(),
+    return GetMaterialApp(
+      title: 'Digital Twins Sync',
+      theme: AppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
+      home: const MainScreen(),
     );
   }
 }

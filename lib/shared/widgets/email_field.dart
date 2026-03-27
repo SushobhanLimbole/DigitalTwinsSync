@@ -9,21 +9,28 @@ class EmailField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      style: const TextStyle(color: Colors.white),
-      decoration: _decoration("Email Address", Icons.mail),
+      style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+      decoration: _decoration(context, "Email Address", Icons.mail),
     );
   }
 
-  InputDecoration _decoration(String label, IconData icon) {
+  InputDecoration _decoration(
+    BuildContext context,
+    String label,
+    IconData icon,
+  ) {
     return InputDecoration(
-      prefixIcon: Icon(icon, color: Colors.white70),
+      prefixIcon: Icon(
+        icon,
+        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+      ),
       hintText: 'Enter your email',
-      hintStyle: const TextStyle(color: Colors.white54),
+      hintStyle: TextStyle(
+        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.54),
+      ),
       filled: true,
       fillColor: Colors.white.withOpacity(0.05),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
     );
   }
 }

@@ -8,16 +8,8 @@ class SignUpBackground extends StatelessWidget {
     return Stack(
       children: [
         Container(color: Colors.black),
-        Positioned(
-          top: -300,
-          left: -300,
-          child: _circle(),
-        ),
-        Positioned(
-          bottom: -300,
-          right: -300,
-          child: _circle(),
-        ),
+        Positioned(top: -300, left: -300, child: _circle()),
+        Positioned(bottom: -300, right: -300, child: _circle()),
       ],
     );
   }

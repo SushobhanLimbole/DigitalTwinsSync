@@ -17,13 +17,15 @@ class ProductivityScoreHero extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
           child: CustomPaint(
-            painter: ProductivityScorePainter(),
+            painter: ProductivityScorePainter(
+              primaryColor: Theme.of(context).colorScheme.primary,
+            ),
           ),
         ),
 
         /// Text Overlay
         Column(
-          children: const [
+          children: [
             Text(
               'Productivity Score',
               style: TextStyle(
@@ -38,7 +40,7 @@ class ProductivityScoreHero extends StatelessWidget {
               style: TextStyle(
                 fontSize: 48,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             SizedBox(height: 8),

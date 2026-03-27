@@ -17,15 +17,15 @@ class _ConfirmPasswordFieldState extends State<ConfirmPasswordField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text("Confirm Password", style: TextStyle(color: Colors.grey)),
-        const SizedBox(height: 8),
+        Text("Confirm Password", style: TextStyle(color: Colors.grey)),
+        SizedBox(height: 8),
         TextFormField(
           controller: widget.controller,
           obscureText: obscure,
-          style: const TextStyle(color: Colors.white),
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
           decoration: InputDecoration(
             hintText: "••••••••",
-            hintStyle: const TextStyle(color: Colors.grey),
+            hintStyle: TextStyle(color: Colors.grey),
             filled: true,
             fillColor: Colors.white10,
             suffixIcon: IconButton(

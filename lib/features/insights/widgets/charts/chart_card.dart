@@ -22,18 +22,17 @@ class ChartCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(24),
-      margin: const EdgeInsets.symmetric(vertical: 6),
+      padding: EdgeInsets.all(24),
+      margin: EdgeInsets.symmetric(vertical: 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
+        border: Border.all(
+          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.1),
+        ),
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            Colors.white.withOpacity(0.05),
-            Colors.transparent,
-          ],
+          colors: [Colors.white.withOpacity(0.05), Colors.transparent],
         ),
       ),
       child: Column(
@@ -42,21 +41,21 @@ class ChartCard extends StatelessWidget {
           // Title
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w500,
-              color: Colors.white,
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
 
           if (value != null) ...[
-            const SizedBox(height: 4),
+            SizedBox(height: 4),
             Text(
               value!,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ],
@@ -67,23 +66,21 @@ class ChartCard extends StatelessWidget {
               Text(
                 subtitle,
                 style: TextStyle(
-                  color: Colors.white.withOpacity(0.6),
+                  color: Theme.of(
+                    context,
+                  ).colorScheme.onSurface.withOpacity(0.6),
                   fontSize: 14,
                 ),
               ),
               if (change != null) ...[
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 Row(
                   children: [
-                    Icon(
-                      changeIcon,
-                      size: 16,
-                      color: const Color(0xFF39FF14),
-                    ),
-                    const SizedBox(width: 2),
+                    Icon(changeIcon, size: 16, color: const Color(0xFF39FF14)),
+                    SizedBox(width: 2),
                     Text(
                       change!,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Color(0xFF39FF14),
                         fontSize: 14,
                         fontWeight: FontWeight.w500,

@@ -20,8 +20,10 @@ class SignInController {
 
     final passRegex = RegExp(r'^(?=.*[A-Z])(?=.*\d).{6,}$');
     if (!passRegex.hasMatch(password)) {
-      _showSnack(context,
-          "Password must have 1 uppercase, 1 digit, and be 6+ characters");
+      _showSnack(
+        context,
+        "Password must have 1 uppercase, 1 digit, and be 6+ characters",
+      );
       return false;
     }
 
@@ -65,7 +67,11 @@ class SignInController {
     }
   }
 
-  void _showSnack(BuildContext context, String message, {bool success = false}) {
+  void _showSnack(
+    BuildContext context,
+    String message, {
+    bool success = false,
+  }) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         backgroundColor: success ? Colors.green : Colors.red,

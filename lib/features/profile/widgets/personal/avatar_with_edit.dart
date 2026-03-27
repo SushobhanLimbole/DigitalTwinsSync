@@ -24,13 +24,13 @@ class AvatarWithEdit extends StatelessWidget {
           bottom: 0,
           right: 0,
           child: Container(
-            padding: const EdgeInsets.all(8),
+            padding: EdgeInsets.all(8),
             decoration: BoxDecoration(
               color: const Color(0xFF4D9FFF),
               shape: BoxShape.circle,
               border: Border.all(color: const Color(0xFF121212), width: 4),
             ),
-            child: const Icon(Icons.edit, color: Color(0xFF121212), size: 20),
+            child: Icon(Icons.edit, color: Color(0xFF121212), size: 20),
           ),
         ),
       ],

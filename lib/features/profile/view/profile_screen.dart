@@ -28,7 +28,7 @@ class _DigitalTwinProfileScreenState extends State<DigitalTwinProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF101022),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       drawer: const CustomDrawer(),
       appBar: _buildAppBar(),
       body: _buildBody(),
@@ -39,11 +39,14 @@ class _DigitalTwinProfileScreenState extends State<DigitalTwinProfileScreen> {
     return AppBar(
       leading: Builder(
         builder: (context) => IconButton(
-          icon: const Icon(Icons.menu, color: Colors.white),
+          icon: Icon(
+            Icons.menu,
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
           onPressed: () => Scaffold.of(context).openDrawer(),
         ),
       ),
-      title: const Text(
+      title: Text(
         'My Digital Twin',
         style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
       ),
@@ -53,7 +56,7 @@ class _DigitalTwinProfileScreenState extends State<DigitalTwinProfileScreen> {
       actions: [
         TextButton(
           onPressed: () {},
-          child: const Text(
+          child: Text(
             'Save',
             style: TextStyle(
               color: Color(0xFF4D9FFF),
@@ -61,21 +64,18 @@ class _DigitalTwinProfileScreenState extends State<DigitalTwinProfileScreen> {
             ),
           ),
         ),
-        const SizedBox(width: 16),
+        SizedBox(width: 16),
       ],
     );
   }
 
   Widget _buildBody() {
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       child: Column(
         children: [
-          const Align(
-            alignment: Alignment.center,
-            child: AvatarWithEdit(),
-          ),
-          const SizedBox(height: 32),
+          const Align(alignment: Alignment.center, child: AvatarWithEdit()),
+          SizedBox(height: 32),
 
           PersonalInfoCard(
             formKey: _formKey,
@@ -83,18 +83,17 @@ class _DigitalTwinProfileScreenState extends State<DigitalTwinProfileScreen> {
             roleController: _roleController,
           ),
 
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
 
           AiEngineCard(
             enablePersonalization: _enablePersonalization,
             enableAutomations: _enableAutomations,
             onPersonalizationChanged: (v) =>
                 setState(() => _enablePersonalization = v),
-            onAutomationsChanged: (v) =>
-                setState(() => _enableAutomations = v),
+            onAutomationsChanged: (v) => setState(() => _enableAutomations = v),
           ),
 
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
 
           PreferencesCard(
             notificationLevel: _notificationLevel,
@@ -104,7 +103,7 @@ class _DigitalTwinProfileScreenState extends State<DigitalTwinProfileScreen> {
             onThemeChanged: (v) => setState(() => _theme = v!),
           ),
 
-          const SizedBox(height: 32),
+          SizedBox(height: 32),
 
           const LogoutButton(),
         ],

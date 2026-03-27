@@ -16,20 +16,20 @@ class PieSlice extends StatelessWidget {
           height: 12,
           decoration: BoxDecoration(shape: BoxShape.circle, color: color),
         ),
-        const SizedBox(width: 12),
+        SizedBox(width: 12),
         Text(
           label,
           style: TextStyle(
-            color: Colors.white.withOpacity(0.8),
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.8),
             fontSize: 14,
           ),
         ),
         const Spacer(),
         Text(
           '$percentage%',
-          style: const TextStyle(
+          style: TextStyle(
             fontWeight: FontWeight.w500,
-            color: Colors.white54,
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.54),
           ),
         ),
       ],

@@ -21,7 +21,7 @@ class PersonalInfoCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SectionHeader(title: 'Personal Information'),
-          const SizedBox(height: 16),
+          SizedBox(height: 16),
           Form(
             key: formKey,
             child: Column(
@@ -54,7 +54,7 @@ class PersonalInfoCard extends StatelessWidget {
 
   Widget _card({required Widget child}) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: const Color(0x991C1C27),
         borderRadius: BorderRadius.circular(12),

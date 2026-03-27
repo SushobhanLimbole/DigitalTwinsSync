@@ -5,6 +5,7 @@ import 'package:digital_twins/features/dashboard/view/dashboard_screen.dart';
 import 'package:digital_twins/features/insights/view/productivity_insights_screen.dart';
 import 'package:digital_twins/features/profile/view/profile_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:digital_twins/shared/theme/theme_notifier.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -16,21 +17,21 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
+          DrawerHeader(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 30,
                   backgroundColor: Colors.white,
                   child: Icon(Icons.person, size: 40, color: Colors.blue),
                 ),
-                const SizedBox(height: 12),
-                const Text(
+                SizedBox(height: 12),
+                Text(
                   'Alex Ryder',
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
@@ -39,8 +40,8 @@ class CustomDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.dashboard),
-            title: const Text('Dashboard'),
+            leading: Icon(Icons.dashboard),
+            title: Text('Dashboard'),
             onTap: () {
               // Navigate to home or close drawer
               Navigator.pushReplacement(
@@ -52,8 +53,8 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text('Profile'),
+            leading: Icon(Icons.person),
+            title: Text('Profile'),
             onTap: () {
               // Navigate to settings
               Navigator.push(
@@ -65,8 +66,8 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.smart_toy),
-            title: const Text('AI Personalization'),
+            leading: Icon(Icons.smart_toy),
+            title: Text('AI Personalization'),
             onTap: () {
               // Navigate to home or close drawer
               Navigator.push(
@@ -78,8 +79,8 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.developer_mode),
-            title: const Text('Automations'),
+            leading: Icon(Icons.developer_mode),
+            title: Text('Automations'),
             onTap: () {
               // Navigate to home or close drawer
               Navigator.push(
@@ -89,8 +90,8 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.insights),
-            title: const Text('Productivity Insights'),
+            leading: Icon(Icons.insights),
+            title: Text('Productivity Insights'),
             onTap: () {
               // Navigate to home or close drawer
               Navigator.push(
@@ -102,8 +103,8 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.email),
-            title: const Text('Chatbot and emails'),
+            leading: Icon(Icons.email),
+            title: Text('Chatbot and emails'),
             onTap: () {
               // Navigate to home or close drawer
               Navigator.push(
@@ -113,8 +114,33 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.logout),
-            title: const Text('Logout'),
+            leading: ListenableBuilder(
+              listenable: themeNotifier,
+              builder: (context, _) {
+                return Icon(
+                  themeNotifier.isDark ? Icons.dark_mode : Icons.light_mode,
+                );
+              },
+            ),
+            title: Text('Toggle Theme'),
+            trailing: ListenableBuilder(
+              listenable: themeNotifier,
+              builder: (context, _) {
+                return Switch(
+                  value: themeNotifier.isDark,
+                  onChanged: (value) {
+                    themeNotifier.toggleTheme();
+                  },
+                );
+              },
+            ),
+            onTap: () {
+              themeNotifier.toggleTheme();
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: Text('Logout'),
             onTap: () {
               // Handle logout
               Navigator.pop(context);

@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 class ProductivityScorePainter extends CustomPainter {
+  final Color primaryColor;
+
+  ProductivityScorePainter({required this.primaryColor});
+
   @override
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
@@ -17,7 +21,7 @@ class ProductivityScorePainter extends CustomPainter {
 
     // Progress arc
     final gradient = LinearGradient(
-      colors: const [Color(0xFF1313EC), Color(0xFFE11D48)],
+      colors: [primaryColor, Color(0xFFE11D48)],
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
     );

@@ -13,14 +13,10 @@ class LogoutButton extends StatelessWidget {
         style: OutlinedButton.styleFrom(
           foregroundColor: const Color(0xFF4D9FFF),
           backgroundColor: const Color(0x331313EC),
-          side: BorderSide(
-            color: const Color(0xFF4D9FFF).withOpacity(0.2),
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+          side: BorderSide(color: const Color(0xFF4D9FFF).withOpacity(0.2)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
-        child: const Text(
+        child: Text(
           'Log Out',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),

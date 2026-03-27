@@ -4,10 +4,7 @@ import 'productivity_boost_actions.dart';
 class ProductivityBoostCard extends StatelessWidget {
   final String message;
 
-  const ProductivityBoostCard({
-    super.key,
-    required this.message,
-  });
+  const ProductivityBoostCard({super.key, required this.message});
 
   @override
   Widget build(BuildContext context) {
@@ -22,15 +19,11 @@ class ProductivityBoostCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         border: Border.all(color: const Color(0x801313EC)),
         boxShadow: const [
-          BoxShadow(
-            color: Color(0x331313EC),
-            blurRadius: 30,
-            spreadRadius: 0,
-          ),
+          BoxShadow(color: Color(0x331313EC), blurRadius: 30, spreadRadius: 0),
         ],
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Column(
           children: [
             Row(
@@ -42,31 +35,31 @@ class ProductivityBoostCard extends StatelessWidget {
                     color: const Color(0x4D1313EC),
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(
+                  child: Icon(
                     Icons.auto_awesome,
-                    color: Color(0xFF1313EC),
+                    color: Theme.of(context).colorScheme.primary,
                     size: 20,
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 Expanded(
                   child: Text(
                     message,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 16,
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: 16),
             ProductivityBoostActions(
               onDismiss: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: const Text("Suggestion dismissed."),
+                    content: Text("Suggestion dismissed."),
                     backgroundColor: Colors.grey[900],
                   ),
                 );
@@ -74,7 +67,7 @@ class ProductivityBoostCard extends StatelessWidget {
               onMerge: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: const Text("Merged successfully!"),
+                    content: Text("Merged successfully!"),
                     backgroundColor: Colors.green[700],
                   ),
                 );

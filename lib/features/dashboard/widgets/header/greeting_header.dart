@@ -9,11 +9,11 @@ class GreetingHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       'Good Morning, $name',
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 32,
         fontWeight: FontWeight.bold,
         letterSpacing: -0.015 * 32 / 1000,
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.onSurface,
       ),
     );
   }

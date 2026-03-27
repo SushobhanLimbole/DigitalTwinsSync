@@ -4,11 +4,7 @@ class ProgressRing extends StatelessWidget {
   final double progress; // 0.0 → 1.0
   final String label;
 
-  const ProgressRing({
-    super.key,
-    required this.progress,
-    required this.label,
-  });
+  const ProgressRing({super.key, required this.progress, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +28,9 @@ class ProgressRing extends StatelessWidget {
             value: progress,
             strokeWidth: 3,
             backgroundColor: Colors.transparent,
-            valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF1313EC)),
+            valueColor: AlwaysStoppedAnimation<Color>(
+              Theme.of(context).colorScheme.primary,
+            ),
           ),
         ),
         Column(
@@ -40,16 +38,13 @@ class ProgressRing extends StatelessWidget {
           children: [
             Text(
               '${(progress * 100).toInt()}%',
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
-            Text(
-              label,
-              style: const TextStyle(color: Colors.grey, fontSize: 12),
-            ),
+            Text(label, style: TextStyle(color: Colors.grey, fontSize: 12)),
           ],
         ),
       ],

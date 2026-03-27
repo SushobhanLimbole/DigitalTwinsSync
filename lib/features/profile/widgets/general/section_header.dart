@@ -9,7 +9,7 @@ class SectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: const TextStyle(
+      style: TextStyle(
         color: Color(0xFF4D9FFF),
         fontSize: 18,
         fontWeight: FontWeight.bold,

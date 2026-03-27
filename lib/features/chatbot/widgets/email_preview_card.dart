@@ -12,9 +12,16 @@ class EmailPreviewCard extends StatelessWidget {
     return Card(
       color: const Color(0xFF1E1E2E),
       child: ListTile(
-        title: Text(email.from, style: const TextStyle(color: Colors.white)),
-        subtitle: Text(email.subject,
-            style: const TextStyle(color: Colors.white70)),
+        title: Text(
+          email.from,
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+        ),
+        subtitle: Text(
+          email.subject,
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+          ),
+        ),
         onTap: onTap,
       ),
     );

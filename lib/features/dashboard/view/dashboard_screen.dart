@@ -18,30 +18,36 @@ class DigitalTwinsDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF101022).withOpacity(0.8),
+        backgroundColor: Theme.of(context).colorScheme.surface.withOpacity(0.8),
         elevation: 0,
 
         leading: Builder(
           builder: (context) => IconButton(
-            icon: const Icon(Icons.menu, color: Colors.white),
+            icon: Icon(
+              Icons.menu,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
 
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Digital Twins Sync',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 18,
-            color: Colors.white,
+            color: Theme.of(context).colorScheme.onSurface,
           ),
         ),
 
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.notifications, color: Colors.white70),
+            icon: Icon(
+              Icons.notifications,
+              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+            ),
           ),
         ],
       ),
@@ -50,17 +56,17 @@ class DigitalTwinsDashboard extends StatelessWidget {
       body: Stack(
         children: [
           SingleChildScrollView(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 /// ---- SYNC INDICATOR ----
                 const UserSyncIndicator(syncText: 'Synced 2m ago'),
-                const SizedBox(height: 8),
+                SizedBox(height: 8),
 
                 /// ---- GREETING ----
                 const GreetingHeader(name: 'Alex'),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
 
                 /// ---- AI PRIORITY ----
                 const AiPriorityCard(
@@ -69,25 +75,25 @@ class DigitalTwinsDashboard extends StatelessWidget {
                   subtitle:
                       "Completing this now will align with your Q3 goals.",
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
 
                 /// ---- PRODUCTIVITY BOOST ----
                 const ProductivityBoostCard(
                   message:
                       "You have overlapping meetings. Merge 'Design Review' and '1-on-1' to save 30 minutes?",
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
 
                 /// ---- TODAY'S SCHEDULE ----
-                const Text(
+                Text(
                   "Today's Schedule",
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
 
                 ScheduleCard(
                   items: const [
@@ -114,18 +120,18 @@ class DigitalTwinsDashboard extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
 
                 /// ---- ACTIVE TASKS ----
-                const Text(
+                Text(
                   'Active Tasks',
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
 
                 TaskListCard(
                   tasks: [
@@ -149,18 +155,18 @@ class DigitalTwinsDashboard extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 24),
+                SizedBox(height: 24),
 
                 /// ---- PRODUCTIVITY INSIGHTS PREVIEW ----
-                const Text(
+                Text(
                   'Productivity Insights',
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
-                const SizedBox(height: 12),
+                SizedBox(height: 12),
 
                 const InsightsPreviewCard(),
               ],
@@ -172,9 +178,13 @@ class DigitalTwinsDashboard extends StatelessWidget {
       /// FAB
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        backgroundColor: const Color(0xFF1313EC),
+        backgroundColor: Theme.of(context).colorScheme.primary,
         elevation: 8,
-        child: const Icon(Icons.add, color: Colors.white, size: 24),
+        child: Icon(
+          Icons.add,
+          color: Theme.of(context).colorScheme.onSurface,
+          size: 24,
+        ),
       ),
     );
   }

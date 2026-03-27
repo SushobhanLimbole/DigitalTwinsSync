@@ -9,27 +9,24 @@ class DonutChart extends StatelessWidget {
     return Stack(
       alignment: Alignment.center,
       children: [
-        CustomPaint(
-          size: const Size(140, 140),
-          painter: DonutChartPainter(),
-        ),
+        CustomPaint(size: const Size(140, 140), painter: DonutChartPainter()),
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
               'Total Time',
               style: TextStyle(
-                color: Colors.white.withOpacity(0.6),
+                color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            const Text(
+            Text(
               '48h 15m',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ],

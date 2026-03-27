@@ -8,6 +8,7 @@ class UsernameField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _field(
+      context: context,
       label: "Username",
       hint: "johndoe",
       controller: controller,
@@ -15,6 +16,7 @@ class UsernameField extends StatelessWidget {
   }
 
   Widget _field({
+    required BuildContext context,
     required String label,
     required String hint,
     required TextEditingController controller,
@@ -22,21 +24,21 @@ class UsernameField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: const TextStyle(color: Colors.grey)),
-        const SizedBox(height: 8),
+        Text(label, style: TextStyle(color: Colors.grey)),
+        SizedBox(height: 8),
         TextFormField(
           controller: controller,
-          style: const TextStyle(color: Colors.white),
-          decoration: _decoration(hint),
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+          decoration: _decoration(context, hint),
         ),
       ],
     );
   }
 
-  InputDecoration _decoration(String hint) {
+  InputDecoration _decoration(BuildContext context, String hint) {
     return InputDecoration(
       hintText: hint,
-      hintStyle: const TextStyle(color: Colors.grey),
+      hintStyle: TextStyle(color: Colors.grey),
       filled: true,
       fillColor: Colors.white10,
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),

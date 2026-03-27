@@ -17,20 +17,23 @@ class _PasswordFieldState extends State<PasswordField> {
     return TextFormField(
       controller: widget.controller,
       obscureText: obscure,
-      style: const TextStyle(color: Colors.white),
+      style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
       decoration: InputDecoration(
-        prefixIcon: const Icon(Icons.lock, color: Colors.white70),
+        prefixIcon: Icon(
+          Icons.lock,
+          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.7),
+        ),
         suffixIcon: IconButton(
           icon: Icon(obscure ? Icons.visibility : Icons.visibility_off),
           onPressed: () => setState(() => obscure = !obscure),
         ),
         hintText: "Enter your password",
-        hintStyle: const TextStyle(color: Colors.white54),
+        hintStyle: TextStyle(
+          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.54),
+        ),
         filled: true,
         fillColor: Colors.white.withOpacity(0.05),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
       ),
     );
   }

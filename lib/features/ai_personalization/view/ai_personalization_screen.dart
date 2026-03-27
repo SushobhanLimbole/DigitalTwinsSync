@@ -14,7 +14,7 @@ class AIPersonalizationScreen extends StatefulWidget {
 }
 
 class _AIPersonalizationScreenState extends State<AIPersonalizationScreen> {
-  int _selectedSegment = 1; 
+  int _selectedSegment = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +22,16 @@ class _AIPersonalizationScreenState extends State<AIPersonalizationScreen> {
       appBar: AppBar(
         leading: Builder(
           builder: (context) => IconButton(
-            icon: const Icon(Icons.menu, color: Colors.white),
+            icon: Icon(
+              Icons.menu,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
-        title: const Text(
+        title: Text(
           'AI Personalization',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         centerTitle: true,
         backgroundColor: Colors.transparent,
@@ -43,14 +43,13 @@ class _AIPersonalizationScreenState extends State<AIPersonalizationScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(16),
               child: ProductivityScoreHero(),
             ),
 
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16),
               child: WeeklyFocusChart(
                 selectedSegment: _selectedSegment,
                 onSegmentChanged: (value) {
@@ -62,7 +61,7 @@ class _AIPersonalizationScreenState extends State<AIPersonalizationScreen> {
             ),
 
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(16),
               child: Column(
                 children: [
                   SuggestionCard(
@@ -97,13 +96,13 @@ class _AIPersonalizationScreenState extends State<AIPersonalizationScreen> {
             ),
 
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+              padding: EdgeInsets.fromLTRB(16, 8, 16, 32),
               child: TextButton(
                 onPressed: () {},
-                child: const Text(
+                child: Text(
                   'Learn how your Productivity Score is calculated',
                   style: TextStyle(
-                    color: Color(0xFF1313EC),
+                    color: Theme.of(context).colorScheme.primary,
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                     decoration: TextDecoration.underline,

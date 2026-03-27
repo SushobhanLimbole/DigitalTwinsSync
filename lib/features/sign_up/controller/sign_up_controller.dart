@@ -48,7 +48,7 @@ class SignUpController {
     );
 
     try {
-      print("request : " + jsonEncode(request.toJson()));
+      print("request : ${jsonEncode(request.toJson())}");
 
       final response = await http.post(
         Uri.parse("http://localhost:8080/auth/register"),
@@ -58,8 +58,8 @@ class SignUpController {
 
       final data = jsonDecode(response.body);
 
-      print("response: " + response.statusCode.toString());
-      print("res: " + response.body);
+      print("response: ${response.statusCode}");
+      print("res: ${response.body}");
 
       if (data["success"] == true) {
         _showSnack(context, data["message"], success: true);

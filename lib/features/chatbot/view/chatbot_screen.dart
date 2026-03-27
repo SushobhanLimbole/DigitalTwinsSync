@@ -21,9 +21,9 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF101022),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
-        title: const Text("AI Assistant"),
+        title: Text("AI Assistant"),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -32,7 +32,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           /// --- CHAT LIST ---
           Expanded(
             child: ListView.builder(
-              padding: const EdgeInsets.all(12),
+              padding: EdgeInsets.all(12),
               itemCount: controller.messages.length,
               itemBuilder: (context, index) {
                 return ChatMessageBubble(message: controller.messages[index]);
@@ -48,34 +48,34 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                 onPressed: () async {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (_) => EmailComposeScreen(),
-                    ),
+                    MaterialPageRoute(builder: (_) => EmailComposeScreen()),
                   );
                 },
-                child: const Text("Send Email"),
+                child: Text("Send Email"),
               ),
               ElevatedButton(
                 onPressed: _retrieveEmails,
-                child: const Text("Retrieve Emails"),
+                child: Text("Retrieve Emails"),
               ),
             ],
           ),
 
-          const SizedBox(height: 12),
+          SizedBox(height: 12),
 
           /// --- INPUT FIELD ---
           Padding(
-            padding: const EdgeInsets.all(12),
+            padding: EdgeInsets.all(12),
             child: Row(
               children: [
                 Expanded(
                   child: TextField(
                     controller: _promptController,
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
                     decoration: InputDecoration(
                       hintText: "Ask something...",
-                      hintStyle: const TextStyle(color: Colors.grey),
+                      hintStyle: TextStyle(color: Colors.grey),
                       filled: true,
                       fillColor: const Color(0xFF1E1E2E),
                       border: OutlineInputBorder(
@@ -84,9 +84,12 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 12),
+                SizedBox(width: 12),
                 IconButton(
-                  icon: const Icon(Icons.send, color: Colors.white),
+                  icon: Icon(
+                    Icons.send,
+                    color: Theme.of(context).colorScheme.onSurface,
+                  ),
                   onPressed: () async {
                     final text = _promptController.text.trim();
                     if (text.isEmpty) return;
@@ -103,7 +106,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
           ),
 
           if (_isRetrievingEmails)
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(8),
               child: CircularProgressIndicator(),
             ),

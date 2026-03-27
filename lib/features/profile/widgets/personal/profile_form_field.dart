@@ -21,20 +21,20 @@ class ProfileFormField extends StatelessWidget {
       children: [
         Text(
           label,
-          style: const TextStyle(
+          style: TextStyle(
             color: Color(0xFFEAEAEA),
             fontSize: 14,
             fontWeight: FontWeight.w500,
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8),
         TextFormField(
           controller: controller,
           enabled: enabled,
-          style: const TextStyle(color: Colors.white),
+          style: TextStyle(color: Theme.of(context).colorScheme.onSurface),
           decoration: InputDecoration(
             hintText: placeholder,
-            hintStyle: const TextStyle(color: Color(0xFF9D9DB9)),
+            hintStyle: TextStyle(color: Color(0xFF9D9DB9)),
             filled: true,
             fillColor: const Color(0xFF282839),
             border: OutlineInputBorder(
@@ -47,7 +47,7 @@ class ProfileFormField extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 16),
+        SizedBox(height: 16),
       ],
     );
   }

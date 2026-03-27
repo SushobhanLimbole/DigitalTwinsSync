@@ -4,10 +4,7 @@ import 'schedule_item.dart';
 class ScheduleCard extends StatelessWidget {
   final List<ScheduleItem> items;
 
-  const ScheduleCard({
-    super.key,
-    required this.items,
-  });
+  const ScheduleCard({super.key, required this.items});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +16,7 @@ class ScheduleCard extends StatelessWidget {
         border: Border.all(color: const Color(0xFF334155)),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(16),
         child: Column(children: items),
       ),
     );

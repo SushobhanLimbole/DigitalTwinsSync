@@ -27,9 +27,7 @@ class TimeFilterSegment extends StatelessWidget {
         disabledBackgroundColor: Colors.transparent,
         disabledForegroundColor: Colors.white70,
         visualDensity: VisualDensity.compact,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
     );
   }

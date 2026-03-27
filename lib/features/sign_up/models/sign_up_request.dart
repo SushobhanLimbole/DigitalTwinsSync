@@ -10,8 +10,8 @@ class SignUpRequest {
   });
 
   Map<String, dynamic> toJson() => {
-        "username": username,
-        "email": email,
-        "password": password,
-      };
+    "username": username,
+    "email": email,
+    "password": password,
+  };
 }
